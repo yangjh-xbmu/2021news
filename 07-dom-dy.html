@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0 auto;
+        width: 770px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>动态内容</h1>
+    <div id="news-container">这是一个容器</div>
+    <script>
+      const newsList = [
+        { title: "科技创新推动经济发展", date: "2023-05-15" },
+        { title: "环保行动：共建绿色家园", date: "2023-05-14" },
+        { title: "教育改革：培养全面发展的人才", date: "2023-05-13" },
+      ];
+
+      function renderNewsList() {
+        const newsContainer = document.getElementById("news-container");
+        newsContainer.innerHTML = ""; // 清空原有内容
+
+        newsList.forEach((news) => {
+          const newsItem = document.createElement("div");
+          newsItem.className = "news-item";
+          newsItem.innerHTML = `
+            <h3>${news.title}</h3>
+            <p>发布日期：${news.date}</p>
+        `;
+          newsContainer.appendChild(newsItem);
+        });
+      }
+
+      renderNewsList();
+    </script>
+  </body>
+</html>

@@ -174,7 +174,7 @@
         {
             "language": "typescript",
             "source": [
-                "import {display} from 'node-kernel';\nasync function proofreadingTool(filename) {\n\n    const marked=require('marked');\n    let text=read(filename);\n    提示词=`\n    ## 角色\n\n    资深文字校对编辑\n\n    ### 流程：\n\n    1. 检查错别字；\n    2. 请检查所有标点符号是否使用正确，包括逗号、句号、引号、括号、冒号、分号等。请确保所有标点符号的位置和用法符合语法规则和表达习惯。\n    3. 检查其它规则：（1）大写中文年份中的【零】，应该为【〇】，例如【二零零四】，应为【二〇〇四】\n\n    ### 要求:\n\n    1. 使用表格的形式逐行输出检查结果，表头为修改前、修改后；\n    2. 一处错误，生成一行，不要将多个错误显示在一行；\n    3. 将修改的地方用加粗的方式进行显示。\n        \n    ### 任务\n    \n    think step by step，逐句校对如下文本内容：\n\n    <text>\n    ${text}\n    </text>\n    `;\n\n    // 你的 Markdown 文本\n    const markdownText=await dsllm(提示词));\n\n    // 将 Markdown 转换为 HTML\n    const html=marked.parse(markdownText);\n\n    display.html(html);\n}\n"
+                "import {display} from 'node-kernel';\nasync function proofreadingTool(filename) {\n\n    const marked=require('marked');\n    let text=read(filename);\n    提示词=`\n    ## 角色\n\n    资深文字校对编辑\n\n    ### 流程：\n\n    1. 检查错别字；\n    2. 请检查所有标点符号是否使用正确，包括逗号、句号、引号、括号、冒号、分号等。请确保所有标点符号的位置和用法符合语法规则和表达习惯。\n    3. 检查其它规则：（1）大写中文年份中的【零】，应该为【〇】，例如【二零零四】，应为【二〇〇四】\n\n    ### 要求:\n\n    1. 使用表格的形式逐行输出检查结果，表头为修改前、修改后；\n    2. 一处错误，生成一行，不要将多个错误显示在一行；\n        \n    ### 任务\n    \n    think step by step，逐句校对如下文本内容：\n\n    <text>\n    ${text}\n    </text>\n    `;\n\n    // 你的 Markdown 文本\n    const markdownText=await dsllm(提示词));\n\n    // 将 Markdown 转换为 HTML\n    const html=marked.parse(markdownText);\n\n    display.html(html);\n}\n"
             ],
             "outputs": [
                 {
@@ -213,7 +213,7 @@
                                 "<td>你提供的代码来看，函数已经实现了更新文本的功能。</td>",
                                 "</tr>",
                                 "<tr>",
-                                "<td>但是，你提到用户输入地文本不能替换原有文本,这可能是由于一些细节问 题。</td>",
+                                "<td>但是，你提到用户输入地文本不能替换原有文本,这可能是由于一些细节问</td>",
                                 "<td>但是，你提到用户输入的文本不能替换原有文本，这可能是由于一些细节问题。</td>",
                                 "</tr>",
                                 "<tr>",
